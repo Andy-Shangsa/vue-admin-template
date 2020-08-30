@@ -15,10 +15,6 @@ export default {
       type: Object,
       default: () => ({})
     },
-    // 占位符
-    placeholder: {
-      type: [String, Number]
-    },
     width: {
       type: String,
       default: "100%"
@@ -40,9 +36,6 @@ export default {
       });
     },
     mixinPlaceholder() {
-      if (this.placeholder) {
-        return this.placeholder;
-      }
       const _elFormItemLabel = this.elFormItem["label"] || "";
       return `请选择${_elFormItemLabel}`;
     }
@@ -97,6 +90,7 @@ export default {
         },
         attrs: {
           clearable: true,
+          placeholder: this.mixinPlaceholder,
           ...this.$attrs,
           value: this.value
         },

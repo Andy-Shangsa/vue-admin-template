@@ -155,3 +155,14 @@ h6 {
   border-radius: 5px;
   background-color: rgba(144, 147, 153, 0.3);
 }
+
+input,
+textarea {
+  &::-webkit-input-placeholder {
+    /* placeholder颜色  */
+    color: #99a9bf !important;
+    /* placeholder字体大小  */
+    font-size: 12px;
+    vertical-align: middle;
+  }
+}
