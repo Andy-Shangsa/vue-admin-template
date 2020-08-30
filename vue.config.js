@@ -126,7 +126,10 @@ module.exports = {
       .end();
 
     // 设置别名
-    config.resolve.alias.set("@c", resolve("src/components"));
+    config.resolve.alias
+      .set("@c", resolve("src/components"))
+      .set("@m", resolve("src/mixins"))
+      .set("@u", resolve("src/utils"));
 
     // 移除 prefetch、preload 插件
     config.plugins.delete("prefetch-index").delete("preload-index");
@@ -136,12 +139,12 @@ module.exports = {
     extract: true,
     sourceMap: false,
     loaderOptions: {
-      // sass: {
-      //   prependData:
-      //     `@import "~@/assets/styles/mixins/mixins.scss";` +
-      //     `@import "~@/assets/styles/public/const.scss";` +
-      //     `@import "~@/assets/styles/public/flex.scss";`
-      // }
+      sass: {
+        prependData:
+          `@import "~@/assets/styles/mixins/mixins.scss";` +
+          `@import "~@/assets/styles/public/const.scss";` +
+          `@import "~@/assets/styles/public/flex.scss";`
+      }
     }
   },
 

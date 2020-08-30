@@ -1,0 +1,92 @@
+/* flex 布局 */
+@include b(flex) {
+  display: box; /* OLD - Android 4.4- */
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  /* 纵向排列 */
+  @include when(column) {
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+  }
+  /* 主轴分布 */
+  @include m(justify-start) {
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+  @include m(justify-center) {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+  }
+  @include m(justify-end) {
+    -webkit-box-pack: end;
+    -webkit-justify-content: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+  @include m(justify-around) {
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+  }
+  @include m(justify-between) {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  /* 辅轴分布 */
+  @include m(align-start) {
+    -webkit-box-align: start;
+    -webkit-align-items: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+  @include m(align-center) {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+  }
+  @include m(align-end) {
+    -webkit-box-align: end;
+    -webkit-align-items: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+  }
+  /* 弹性空间 */
+  @include e(1) {
+    -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1; /* OLD - Firefox 19- */
+    -webkit-flex: 1; /* Chrome */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  }
+  @include e(2) {
+    -webkit-box-flex: 2; /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 2; /* OLD - Firefox 19- */
+    -webkit-flex: 2; /* Chrome */
+    -ms-flex: 2; /* IE 10 */
+    flex: 2; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  }
+  @include e(3) {
+    -webkit-box-flex: 3; /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 3; /* OLD - Firefox 19- */
+    -webkit-flex: 3; /* Chrome */
+    -ms-flex: 3; /* IE 10 */
+    flex: 3; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  }
+}
