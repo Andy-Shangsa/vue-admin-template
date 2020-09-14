@@ -76,7 +76,7 @@ export default {
     // 渲染动态列数据
     const renderColumns = (initColumns = []) => {
       return initColumns.map((col, index) => {
-        let { columns = [], render, ...params } = col;
+        let { columns = [], render, renderHeader, ...params } = col;
         let { type, label = "", prop = "" } = params;
         const key = prop || label;
         let children = [];

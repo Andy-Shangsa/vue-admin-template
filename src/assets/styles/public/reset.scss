@@ -1,11 +1,12 @@
 html {
   margin: 0;
   padding: 0;
-  height: 100%;
   -webkit-text-size-adjust: 100% !important;
   text-size-adjust: 100% !important;
   -moz-text-size-adjust: 100% !important;
   -webkit-tap-highlight-color: transparent;
+  font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei",
+    "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
 }
 
 body {
@@ -14,8 +15,7 @@ body {
   color: #303133;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
-  font-size: 12px;
+  font-size: 12px/1.5;
 }
 
 input,
@@ -85,14 +85,10 @@ nav,
 section {
   margin: 0px;
   padding: 0px;
-  font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei",
-    "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
 }
 
 a {
   color: inherit;
-  font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei",
-    "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   &:link,
   &:hover,
   &:visited,

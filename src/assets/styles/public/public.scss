@@ -1,5 +1,15 @@
-/* 基础类
+/* 基础样式
+ -------------------------- */
+html,
+body,
+#app {
+  height: 100%;
+}
+/* 公共类
  -------------------------- */
 .pointer {
   cursor: pointer;
+}
+.overflow-hidden {
+  overflow: hidden;
 }

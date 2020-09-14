@@ -5,7 +5,7 @@ export const tagMap = {
   },
   "input-number": {
     tag: "el-input-number",
-    trigger: "blur"
+    trigger: "change"
   },
   textarea: {
     tag: "el-input",
@@ -65,6 +65,14 @@ export const tagMap = {
   },
   year: {
     tag: "el-date-picker",
+    trigger: "change"
+  },
+  transfer: {
+    tag: "el-transfer",
+    trigger: "change"
+  },
+  "color-picker": {
+    tag: "el-color-picker",
     trigger: "change"
   }
 };

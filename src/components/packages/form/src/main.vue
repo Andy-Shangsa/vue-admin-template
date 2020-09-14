@@ -49,12 +49,18 @@ export default {
       type: Array,
       default: () => []
     },
+    // 按钮对齐方式
     buttonsJustify: {
       type: String,
       default: "center",
       validator: (val) => {
         return ["start", "center", "end"].includes(val);
       }
+    },
+    // 自定义组件标签映射
+    tagMap: {
+      type: Object,
+      default: () => ({})
     }
   },
   data() {
@@ -63,6 +69,12 @@ export default {
       computedFormDesc: [],
       recordMap: new Map()
     };
+  },
+  computed: {
+    // 组件映射
+    computedTagMap() {
+      return { ...tagMap, ...this.tagMap };
+    }
   },
   watch: {
     formDesc: {
@@ -166,12 +178,12 @@ export default {
     },
     // 获取组件标签名称
     _getTagName(type) {
-      const map = tagMap[type] || {};
+      const map = this.computedTagMap[type] || {};
       return map["tag"] || "el-input";
     },
     // 获取触发验证时机
     _getTrigger(type) {
-      const map = tagMap[type] || {};
+      const map = this.computedTagMap[type] || {};
       return map["trigger"] || "blur";
     },
     // 获取占位符文字
@@ -251,7 +263,15 @@ export default {
                 value: itemValue,
                 placeholder,
                 options,
-                type
+                type,
+                // 下拉框远程模糊匹配时
+                "remote-method": async (query) => {
+                  const remoteMethod = attrs["remote-method"];
+                  if (typeof remoteMethod === "function") {
+                    const res = await remoteMethod(query);
+                    this.setItemOptions(prop, res);
+                  }
+                }
               },
               on: {
                 ...on,

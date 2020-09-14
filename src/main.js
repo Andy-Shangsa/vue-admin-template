@@ -8,13 +8,15 @@ import "regenerator-runtime/runtime";
 // 加载 UI 组件
 import MelodyUI from "melody-ui";
 import "melody-ui/lib/theme-chalk/index.css";
-// 公共样式
-import "@/assets/styles/index.scss";
-import Components from "@/components";
-Vue.config.productionTip = false;
+// 挂载
+import Components from "@u/vue-install";
+
 Vue.use(MelodyUI, {
   size: "medium"
 }).use(Components);
+
+Vue.config.productionTip = false;
+
 new Vue({
   router,
   store,

@@ -1,4 +1,7 @@
-const componentsContext = require.context("./packages", true, /index.js$/);
+/**
+ * @description vue全局挂载
+ */
+const componentsContext = require.context("@c/packages", true, /index.js$/);
 
 const install = function(Vue, opts = {}) {
   componentsContext.keys().forEach(item => {

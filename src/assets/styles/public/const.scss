@@ -1,0 +1,29 @@
+/* 主题
+ -------------------------- */
+$-color-primary: #03b8c9;
+$-color-success: #67c23a;
+$-color-warning: #e6a23c;
+$-color-danger: #f56c6c;
+/* 文字
+ -------------------------- */
+$-text-color-primary: #303133;
+$-text-color-regular: #606266;
+$-text-color-secondary: #909399;
+$-text-color-placeholder: #99a9bf;
+/* 边框
+ -------------------------- */
+$-border-color-base: #dcdfe6;
+$-border-color-second: #e4e7ed;
+$-border-color-third: #ebeef5;
+$-border-color-fouth: #f2f6fc;
+/* 布局
+ -------------------------- */
+$-header-height: 56px;
+$-menu-toggle: 65px;
+$-menu-collapse: 225px;
+
+:export {
+  headerHeight: $-header-height;
+  menuToggle: $-menu-toggle;
+  menuCollapse: $-menu-collapse;
+}

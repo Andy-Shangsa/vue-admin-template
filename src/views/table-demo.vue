@@ -6,6 +6,7 @@
         class="flex flex--justify-between"
       >
         <el-input
+          v-model="model"
           style="width: 240px;"
           placeholder="请输入搜索条件"
         ></el-input>
@@ -28,6 +29,7 @@ export default {
   name: "Home",
   data() {
     return {
+      model: "",
       columns: Object.freeze([
         {
           prop: "id",
@@ -64,7 +66,7 @@ export default {
   background-color: #d3dce6;
 }
 
-.el-main {
-  background-color: #e9eef3;
-}
+// .el-main {
+//   background-color: #e9eef3;
+// }
 </style>

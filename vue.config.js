@@ -55,6 +55,9 @@ module.exports = {
         new TerserPlugin({
           terserOptions: {
             warnings: false,
+            output: {
+              comments: false
+            },
             compress: {
               // 删除无用的代码
               unused: true,
@@ -108,12 +111,6 @@ module.exports = {
     // 修复HMR
     config.resolve.symlinks(true);
 
-    // 设置标题
-    config.plugin("html").tap(args => {
-      args[0].title = process.env.VUE_APP_TITLE;
-      return args;
-    });
-
     // 删除换行配置
     config.module
       .rule("vue")
@@ -128,7 +125,6 @@ module.exports = {
     // 设置别名
     config.resolve.alias
       .set("@c", resolve("src/components"))
-      .set("@m", resolve("src/mixins"))
       .set("@u", resolve("src/utils"));
 
     // 移除 prefetch、preload 插件
@@ -138,6 +134,7 @@ module.exports = {
   css: {
     extract: true,
     sourceMap: false,
+    requireModuleExtension: true,
     loaderOptions: {
       sass: {
         prependData:
@@ -153,10 +150,16 @@ module.exports = {
 
   // 它支持webPack-dev-server的所有选项
   devServer: {
+    host: "0.0.0.0",
     port: 3000,
+    hot: true,
+    disableHostCheck: true,
     https: false,
-    hotOnly: false,
     open: false,
+    overlay: {
+      warnings: true,
+      errors: true
+    },
     proxy: {
       "/base_url": {
         target: "http://api.wisder.cn:8066/router/Execute",
